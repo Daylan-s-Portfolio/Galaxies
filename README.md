@@ -6,14 +6,20 @@ March 13th 2025
 # Introduction
 
 This project processes three JWST MIRI FITS images taken with filters
-**f770w**, **f1130w**, and **f1500w**. We build an RGB composite image
+**f770w**, **f1130w**, and **f1500w**. I build an RGB composite image
 from these three filters and perform additional data analyses to
-demonstrate our data science skills in R. These extra analyses
-include: - Visualizing each filter individually. - Computing summary
-statistics. - Plotting histograms of pixel intensities. - Evaluating
-correlations between the filters. - Performing Principal Component
-Analysis (PCA) to explore dominant variations. - Creating an interactive
-scatter plot.
+demonstrate our data science skills in R. These extra analyses include:
+
+\- Visualizing each filter individually.
+
+\- Computing summary statistics.
+
+\- Plotting histograms of pixel intensities.
+
+- Evaluating correlations between the filters.
+
+\- Performing Principal Component Analysis (PCA) to explore dominant
+variations.
 
 *PCA (Principal Component Analysis)* is a statistical technique that
 transforms data into a set of orthogonal (uncorrelated) components. The
@@ -33,13 +39,12 @@ library(tidyr)       # For reshaping data
 library(ggplot2)     # For static plotting
 library(ggspatial)   # For adding scale bars and north arrows in plots
 library(gridExtra)   # For arranging multiple ggplots together
-library(plotly)      # For interactive plots
 library(corrplot)    # For plotting correlation matrices
 ```
 
 # 2. Define Helper Functions
 
-Below we define several functions:
+Below I defined several functions:
 
 - **zscale_normalize**: Normalizes image data using the 5th and 95th
   percentiles.
@@ -148,7 +153,7 @@ filters <- list(
 
 # 4. Load Data from All Filters
 
-We loop through the filters and load the FITS data along with WCS
+I looped through the filters and load the FITS data along with WCS
 information.
 
 ``` r
@@ -158,7 +163,7 @@ names(filter_data) <- sapply(filter_data, function(x) x$name)
 
 # 5. Visualize Each Filter Individually
 
-Before creating the composite image, we display each filter’s image
+Before creating the composite image, I displayed each filter’s image
 individually in a row.
 
 ``` r
@@ -184,7 +189,8 @@ plot_filter_image <- function(filt, gamma = 0.8, contrast = 0.1, color_scale) {
     scale_fill_gradientn(colors = color_scale) +  # Apply correct filter color
     scale_y_reverse() +
     theme_void() +
-    labs(title = paste("JWST MIRI -", filt$name))
+    labs(title = paste("JWST MIRI -", filt$name)) +
+    theme(legend.position = "bottom")  # Move legend to the bottom
 }
 
 # Generate individual plots with correct colors
@@ -192,6 +198,13 @@ p_f770w <- plot_filter_image(filter_data$f770w, gamma = 0.8, contrast = 0.1, col
 p_f1130w <- plot_filter_image(filter_data$f1130w, gamma = 0.8, contrast = 0.1, color_f1130w)
 p_f1500w <- plot_filter_image(filter_data$f1500w, gamma = 0.8, contrast = 0.1, color_f1500w)
 
+
+print("Pixel intensity by Filter")
+```
+
+    ## [1] "Pixel intensity by Filter"
+
+``` r
 # Arrange them side-by-side
 grid.arrange(p_f770w, p_f1130w, p_f1500w, ncol = 3)
 ```
@@ -200,7 +213,7 @@ grid.arrange(p_f770w, p_f1130w, p_f1500w, ncol = 3)
 
 # 6. Create the Final RGB Composite Plot
 
-Now we combine the three filters into a single RGB composite image and
+Now I combined the three filters into a single RGB composite image and
 save the result.
 
 ``` r
@@ -215,7 +228,7 @@ save the result.
 
 ## 7.1 Summary Statistics
 
-We compute basic statistics (mean, median, standard deviation) for pixel
+I computed basic statistics (mean, median, standard deviation) for pixel
 intensities for each filter.
 
 ``` r
@@ -330,8 +343,8 @@ grid.arrange(p_log_f770w, p_log_f1130w, p_log_f1500w, ncol = 1)
 
 4.  **Better Visibility of Bulk**
 
-    - Because we used a log transform, we avoid having one huge bar at
-      zero and a nearly empty plot for the rest. Instead, we see how
+    - Because I used a log transform, I avoid having one huge bar at
+      zero and a nearly empty plot for the rest. Instead, we can see how
       intensities spread over a few orders of magnitude, revealing that
       the bulk is within 1–100 on the log scale, and only rare pixels
       exceed 100 or 1000.
@@ -344,7 +357,7 @@ logarithmic transformation.
 
 # 8. Correlation Analysis
 
-We combine the pixel data from all filters into a data frame and compute
+I combined the pixel data from all filters into a data frame and compute
 a correlation matrix to see how similar the images are across filters.
 
 ``` r
@@ -445,7 +458,7 @@ component is negligible.
 
 # Conclusion
 
-In this project, we:
+In this project, I:
 
 Loaded JWST MIRI FITS images from three filters.
 
