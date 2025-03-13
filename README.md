@@ -8,9 +8,13 @@ March 13th 2025
 This project processes three JWST MIRI FITS images taken with filters
 **f770w**, **f1130w**, and **f1500w**. I build an RGB composite image
 from these three filters and perform additional data analyses to
-demonstrate our data science skills in R. These extra analyses include:
+demonstrate my data science skills in R.
+
+These extra analyses include:
 
 \- Visualizing each filter individually.
+
+\- Create an RBG image by combining filters
 
 \- Computing summary statistics.
 
@@ -19,14 +23,12 @@ demonstrate our data science skills in R. These extra analyses include:
 - Evaluating correlations between the filters.
 
 \- Performing Principal Component Analysis (PCA) to explore dominant
-variations.
-
-*PCA (Principal Component Analysis)* is a statistical technique that
-transforms data into a set of orthogonal (uncorrelated) components. The
-first principal component (PC1) captures the largest amount of variance
-in the data, while subsequent components capture decreasing amounts.
-This helps identify the underlying structure or trends in complex
-datasets.
+variations. *PCA (Principal Component Analysis)* is a statistical
+technique that transforms data into a set of orthogonal (uncorrelated)
+components. The first principal component (PC1) captures the largest
+amount of variance in the data, while subsequent components capture
+decreasing amounts. This helps identify the underlying structure or
+trends in complex datasets.
 
 # 1. Load Libraries
 
