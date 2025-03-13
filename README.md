@@ -5,24 +5,23 @@ March 13th 2025
 
 # Introduction
 
-This project processes three JWST MIRI FITS images taken with filters
-**f770w**, **f1130w**, and **f1500w**. I build an RGB composite image
-from these three filters and perform additional data analyses to
-demonstrate my data science skills in R.
+I have always been facinated with space. That is why I have chosen to
+visualize **Galaxies IC 2163 and NGC 2207** located about 110 million
+light years from Earth. This project processes three JWST MIRI FITS
+images taken with filters **f770w**, **f1130w**, and **f1500w** . To
+demonstrate my data science skills in R I have:
 
-These extra analyses include:
+\- Visualized each filter individually.
 
-\- Visualizing each filter individually.
+\- Combine the 3 filters into a RGB Composite Plot.
 
-\- Create an RGB image by combining all 3 filters.
+\- Computed summary statistics.
 
-\- Computing summary statistics.
+\- Plot histograms of pixel intensities.
 
-\- Plotting histograms of pixel intensities.
+\- Evalated correlations between the filters.
 
-- Evaluating correlations between the filters.
-
-\- Performing Principal Component Analysis (PCA) to explore dominant
+\- Performed Principal Component Analysis (PCA) to explore dominant
 variations. *PCA (Principal Component Analysis)* is a statistical
 technique that transforms data into a set of orthogonal (uncorrelated)
 components. The first principal component (PC1) captures the largest
