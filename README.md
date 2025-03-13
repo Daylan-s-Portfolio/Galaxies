@@ -14,7 +14,7 @@ These extra analyses include:
 
 \- Visualizing each filter individually.
 
-\- Create an RBG image by combining filters
+\- Create an RGB image by combining all 3 filters.
 
 \- Computing summary statistics.
 
