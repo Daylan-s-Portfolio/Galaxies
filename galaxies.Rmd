@@ -1,8 +1,9 @@
 ---
-title: "JWST MIRI Composite Image Analysis and Extended Exploration"
+title: "JWST MIRI Composite Image Analysis"
 author: "Daylan Salmeron"
 date: "March 13th 2025"
-output: html_document
+output: github_document
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -351,22 +352,6 @@ print(pca_plot)
 
 Most of the variation across pixels is captured by one dominant component (likely overall brightness). The second component captures minor, secondary variations between the filters, while the third component is negligible.
 
-# 10. Interactive Scatter Plot
-
-To explore the relationship between two filters interactively, we create a scatter plot comparing f1130w vs. f1500w. Since the dataset is large, we sample a subset of points to avoid performance issues.
-
-```{r}
-df_sample <- df_corr %>% 
-  filter(is.finite(f1130w) & is.finite(f1500w)) %>% 
-  sample_n(min(10000, n()))
-scatter_plot <- ggplot(df_sample, aes(x = f1130w, y = f1500w)) +
-  geom_point(alpha = 0.3, color = "darkgreen") +
-  theme_minimal() +
-  labs(title = "Interactive Scatter: f1130w vs. f1500w",
-       x = "f1130w Pixel Intensity", y = "f1500w Pixel Intensity")
-ggplotly(scatter_plot)
-```
-
 # Conclusion
 
 In this project, we:
@@ -378,7 +363,5 @@ Visualized individual filter images and combined them into an RGB composite.
 Computed summary statistics and generated histograms to understand pixel intensity distributions.
 
 Analyzed the correlation between filters. Performed PCA to reveal dominant trends in the data.
-
-Created an interactive scatter plot for further exploration.
 
 This analysis demonstrates proficiency in R programming, image processing, and data science techniques applied to astrophysical data.
